@@ -35,6 +35,6 @@ def abrir_sistema(login_window):
     
     for i, (text, command) in enumerate(buttons):
         button = tk.Button(frame, text=text, command=command)
-        button.grid(row=i, column=0, padx=10, pady=10)  # Alinhar os botões um embaixo do outro
+        button.grid(row=i, column=0, padx=10, pady=10)
     
     sistema.mainloop()
