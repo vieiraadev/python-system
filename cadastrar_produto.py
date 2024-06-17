@@ -6,7 +6,7 @@ produtos = []
 
 def adicionar_produto():
     def validar_quantidade(action, value_if_allowed, text):
-        if action == '1':  # Inserção de texto
+        if action == '1': 
             if not text.isdigit():
                 messagebox.showerror("Erro", "Por favor, insira somente números.")
                 return False
