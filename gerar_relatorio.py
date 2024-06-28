@@ -7,6 +7,10 @@ from gerenciar_pedidos import pedidos
 from atualizar_estoque import correcoes_estoque  
 
 def gerar_relatorio():
+    """
+    Gera um relatório consolidado de produtos, clientes, fornecedores, pedidos e correções de estoque.
+    Exibe o relatório em uma nova janela com um campo de texto.
+    """
     janela = tk.Toplevel()
     janela.title("Relatório de Produtos, Clientes, Fornecedores, Pedidos e Correções de Estoque")
     
