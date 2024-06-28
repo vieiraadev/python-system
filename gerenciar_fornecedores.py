@@ -4,6 +4,13 @@ from tkinter import messagebox
 fornecedores = []
 
 def validar_entrada(entry_value):
+    """
+    Valida se o valor inserido é numérico, vazio ou contém o caractere '/'.
+    Exibe uma mensagem de erro se o valor não for válido.
+    
+    :param entry_value: Valor do campo de entrada.
+    :return: True se o valor for válido, False caso contrário.
+    """
     if entry_value.isdigit() or entry_value == "" or "/" in entry_value:
         return True
     else:
@@ -11,6 +18,10 @@ def validar_entrada(entry_value):
         return False
 
 def adicionar_fornecedor():
+    """
+    Abre uma janela para adicionar um novo fornecedor.
+    Salva o fornecedor na lista de fornecedores se todos os campos estiverem preenchidos corretamente.
+    """
     def salvar_fornecedor():
         nome_fornecedor = entry_nome_fornecedor.get()
         cpf_cnpj_fornecedor = entry_cpf_cnpj.get()
@@ -61,6 +72,11 @@ def adicionar_fornecedor():
     button_salvar.grid(row=3, columnspan=2, pady=10)
 
 def remover_fornecedor():
+    """
+    Remove o fornecedor selecionado da lista de fornecedores.
+    Exibe uma mensagem de sucesso se o fornecedor for removido corretamente.
+    Exibe uma mensagem de erro se nenhum fornecedor estiver selecionado.
+    """
     selecionado = lista_fornecedores.curselection()
     if selecionado:
         fornecedores.pop(selecionado[0])
@@ -70,11 +86,19 @@ def remover_fornecedor():
         messagebox.showerror("Erro", "Por favor, selecione um fornecedor para remover.")
 
 def atualizar_lista_fornecedores():
+    """
+    Atualiza a lista de fornecedores exibida na interface gráfica.
+    Remove todos os itens da lista e insere novamente os fornecedores com seus dados.
+    """
     lista_fornecedores.delete(0, tk.END)
     for fornecedor in fornecedores:
         lista_fornecedores.insert(tk.END, f"Nome: {fornecedor['nome']}, CPF/CNPJ: {fornecedor['cpf_cnpj']}, Data de Nascimento: {fornecedor['data_nascimento']}")
 
 def gerenciar_fornecedores():
+    """
+    Cria uma nova janela para gerenciamento de fornecedores.
+    Configura a interface gráfica com opções para adicionar e remover fornecedores, e uma lista de fornecedores.
+    """
     janela = tk.Toplevel()
     janela.title("Gerenciar Fornecedores")
     
