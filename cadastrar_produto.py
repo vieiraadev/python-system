@@ -5,14 +5,31 @@ from gerenciar_fornecedores import fornecedores
 produtos = []
 
 def adicionar_produto():
+    """
+    Abre uma janela para adicionar um novo produto.
+    Valida a entrada de dados para garantir que a quantidade seja numérica.
+    Adiciona o produto à lista de produtos se todos os campos estiverem preenchidos corretamente.
+    """
     def validar_quantidade(action, value_if_allowed, text):
-        if action == '1': 
+        """
+        Valida se o valor inserido no campo de quantidade é numérico.
+        :param action: Ação realizada (inserção ou deleção de texto).
+        :param value_if_allowed: Valor permitido após a ação.
+        :param text: Texto inserido.
+        :return: True se a ação for permitida, False caso contrário.
+        """
+        if action == '1':
             if not text.isdigit():
                 messagebox.showerror("Erro", "Por favor, insira somente números.")
                 return False
         return True
     
     def salvar_produto():
+        """
+        Salva o produto na lista de produtos.
+        Exibe uma mensagem de sucesso se o produto for adicionado corretamente.
+        Exibe uma mensagem de erro se algum campo estiver preenchido incorretamente.
+        """   
         nome_produto = entry_nome_produto.get()
         quantidade = entry_quantidade.get()
         fornecedor = combobox_fornecedor.get()
@@ -55,6 +72,11 @@ def adicionar_produto():
     button_salvar.grid(row=3, columnspan=2, pady=10)
 
 def remover_produto():
+    """
+    Remove o produto selecionado da lista de produtos.
+    Exibe uma mensagem de sucesso se o produto for removido corretamente.
+    Exibe uma mensagem de erro se nenhum produto estiver selecionado.
+    """
     selecionado = lista_produtos.curselection()
     if selecionado:
         produtos.pop(selecionado[0])
@@ -64,11 +86,19 @@ def remover_produto():
         messagebox.showerror("Erro", "Por favor, selecione um produto para remover.")
 
 def atualizar_lista_produtos():
+    """
+    Atualiza a lista de produtos exibida na interface gráfica.
+    Remove todos os itens da lista e insere novamente os produtos com suas quantidades e fornecedores.
+    """
     lista_produtos.delete(0, tk.END)
     for produto in produtos:
         lista_produtos.insert(tk.END, f"Produto: {produto['nome']}, Quantidade: {produto['quantidade']}, Fornecedor: {produto['fornecedor']}")
 
 def cadastrar_produto():
+    """
+    Cria uma nova janela para cadastro de produtos.
+    Configura a interface gráfica com opções para adicionar e remover produtos, e uma lista de produtos.
+    """
     janela = tk.Toplevel()
     janela.title("Cadastrar Produto")
     janela.geometry("600x400")
