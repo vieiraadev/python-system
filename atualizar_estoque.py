@@ -5,6 +5,12 @@ from cadastrar_produto import produtos
 correcoes_estoque = []
 
 def validar_numeros(entry_value):
+    """
+    Valida se o valor inserido é numérico ou vazio.
+    Exibe uma mensagem de erro se o valor não for numérico.
+    :param entry_value: Valor do campo de entrada.
+    :return: True se o valor for numérico ou vazio, False caso contrário.
+    """
     if entry_value.isdigit() or entry_value == "":
         return True
     else:
@@ -12,6 +18,11 @@ def validar_numeros(entry_value):
         return False
 
 def atualizar_quantidade():
+    """
+    Abre uma nova janela para atualização da quantidade de um produto selecionado.
+    Salva a nova quantidade e o motivo da correção na lista de correções de estoque.
+    Atualiza a quantidade do produto selecionado na lista de produtos.
+    """
     selecionado = lista_produtos.curselection()
     if selecionado:
         produto_selecionado = produtos[selecionado[0]]
@@ -35,7 +46,7 @@ def atualizar_quantidade():
                 messagebox.showerror("Erro", "Por favor, insira um valor numérico para a quantidade e o motivo da correção.")
         
         janela_atualizar = tk.Toplevel()
-        janela_atualizar.title("Atualizar Quantidade")
+        janela_atualizar.title("Correção De Estoque")
         
         frame_atualizar = tk.Frame(janela_atualizar)
         frame_atualizar.pack(pady=20, padx=20)
@@ -64,11 +75,19 @@ def atualizar_quantidade():
         messagebox.showerror("Erro", "Por favor, selecione um produto para atualizar.")
 
 def atualizar_lista_produtos():
+    """
+    Atualiza a lista de produtos exibida na interface gráfica.
+    Remove todos os itens da lista e insere novamente os produtos com suas quantidades e fornecedores.
+    """
     lista_produtos.delete(0, tk.END)
     for produto in produtos:
         lista_produtos.insert(tk.END, f"Produto: {produto['nome']}, Quantidade: {produto['quantidade']}, Fornecedor: {produto['fornecedor']}")
 
 def atualizar_estoque():
+    """
+    Cria uma nova janela para atualização de estoque.
+    Configura a interface gráfica com lista de produtos e botão para atualizar a quantidade.
+    """
     janela = tk.Toplevel()
     janela.title("Atualizar Estoque")
     
