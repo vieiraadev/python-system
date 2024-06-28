@@ -4,9 +4,19 @@ from tkinter import messagebox
 usuarios_pendentes = []
 
 def adicionar_usuario_para_aprovacao(usuario, senha):
+    """
+    Adiciona um usuário e sua senha à lista de pendentes para aprovação.
+    :param usuario: Nome do usuário a ser adicionado.
+    :param senha: Senha do usuário a ser adicionado.
+    """
     usuarios_pendentes.append((usuario, senha))
 
 def aprovar_usuario():
+    """
+    Aprova o usuário selecionado na lista de pendentes.
+    Remove o usuário da lista de pendentes e exibe uma mensagem de sucesso.
+    Se nenhum usuário estiver selecionado, exibe uma mensagem de erro.
+    """
     selecionado = lista_usuarios.curselection()
     if selecionado:
         usuario_aprovado = usuarios_pendentes.pop(selecionado[0])
@@ -16,6 +26,11 @@ def aprovar_usuario():
         messagebox.showerror("Erro", "Por favor, selecione um usuário para aprovar.")
 
 def rejeitar_usuario():
+    """
+    Rejeita o usuário selecionado na lista de pendentes.
+    Remove o usuário da lista de pendentes e exibe uma mensagem de sucesso.
+    Se nenhum usuário estiver selecionado, exibe uma mensagem de erro.
+    """
     selecionado = lista_usuarios.curselection()
     if selecionado:
         usuario_rejeitado = usuarios_pendentes.pop(selecionado[0])
@@ -25,11 +40,19 @@ def rejeitar_usuario():
         messagebox.showerror("Erro", "Por favor, selecione um usuário para rejeitar.")
 
 def atualizar_lista_usuarios():
+    """
+    Atualiza a lista de usuários exibida na interface gráfica.
+    Remove todos os itens da lista e insere novamente os usuários pendentes.
+    """
     lista_usuarios.delete(0, tk.END)
     for usuario in usuarios_pendentes:
         lista_usuarios.insert(tk.END, f"Usuário: {usuario[0]}")
 
 def aprovacao_usuario():
+    """
+    Cria uma nova janela para aprovação de usuários.
+    Configura a interface gráfica com lista de usuários pendentes e botões de aprovar e rejeitar.
+    """
     janela = tk.Toplevel()
     janela.title("Aprovação de Usuário")
     
