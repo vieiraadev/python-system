@@ -6,6 +6,11 @@ from aprovacao_usuario import adicionar_usuario_para_aprovacao
 usuarios_pendentes = []
 
 def fazer_login():
+    """
+    Função para fazer login no sistema.
+    Verifica se o usuário e senha são válidos e, em caso positivo, abre o sistema.
+    Exibe uma mensagem de erro se o login for inválido.
+    """
     usuario = entry_usuario.get()
     senha = entry_senha.get()
     
@@ -15,6 +20,12 @@ def fazer_login():
         messagebox.showerror("Erro", "Usuário ou senha inválidos")
 
 def registrar_usuario():
+    """
+    Função para registrar um novo usuário.
+    Abre uma janela para inserir os dados do novo usuário e salva o registro.
+    Exibe uma mensagem de sucesso se o registro for realizado corretamente.
+    Exibe uma mensagem de erro se algum campo estiver vazio.
+    """
     def salvar_registro():
         novo_usuario = entry_novo_usuario.get()
         nova_senha = entry_nova_senha.get()
