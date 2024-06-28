@@ -8,6 +8,10 @@ from aprovacao_usuario import aprovacao_usuario
 from gerenciar_clientes import gerenciar_clientes
 
 def abrir_sistema(login_window):
+    """
+    Abre a janela principal do sistema de gerenciamento de estoque e fecha a janela de login.
+    Configura a interface gráfica com as funcionalidades disponíveis.
+    """
     login_window.destroy()
     
     sistema = tk.Tk()
