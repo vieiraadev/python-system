@@ -6,6 +6,12 @@ from gerenciar_clientes import obter_clientes
 pedidos = []
 
 def validar_numeros(entry_value):
+    """
+    Valida se o valor inserido é numérico ou vazio.
+    Exibe uma mensagem de erro se o valor não for numérico.
+    :param entry_value: Valor do campo de entrada.
+    :return: True se o valor for numérico ou vazio, False caso contrário.
+    """
     if entry_value.isdigit() or entry_value == "":
         return True
     else:
@@ -13,6 +19,10 @@ def validar_numeros(entry_value):
         return False
 
 def adicionar_pedido(parent):
+    """
+    Abre uma janela para adicionar um novo pedido.
+    Salva o pedido na lista de pedidos se todos os campos estiverem preenchidos corretamente.
+    """
     def salvar_pedido():
         produto_selecionado = combobox_produto.get()
         quantidade_pedido = entry_quantidade_pedido.get()
@@ -67,6 +77,11 @@ def adicionar_pedido(parent):
     button_salvar.grid(row=3, columnspan=2, pady=10)
 
 def remover_pedido():
+    """
+    Remove o pedido selecionado da lista de pedidos.
+    Exibe uma mensagem de sucesso se o pedido for removido corretamente.
+    Exibe uma mensagem de erro se nenhum pedido estiver selecionado.
+    """
     selecionado = lista_pedidos.curselection()
     if selecionado:
         pedido_removido = pedidos.pop(selecionado[0])
@@ -80,6 +95,10 @@ def remover_pedido():
         messagebox.showerror("Erro", "Por favor, selecione um pedido para remover.")
 
 def alterar_pedido():
+    """
+    Abre uma janela para alterar a quantidade de um pedido selecionado.
+    Salva a alteração na lista de pedidos se a quantidade for válida e estiver disponível no estoque.
+    """
     selecionado = lista_pedidos.curselection()
     if selecionado:
         pedido_selecionado = pedidos[selecionado[0]]
@@ -128,11 +147,19 @@ def alterar_pedido():
         messagebox.showerror("Erro", "Por favor, selecione um pedido para alterar.")
 
 def atualizar_lista_pedidos():
+    """
+    Atualiza a lista de pedidos exibida na interface gráfica.
+    Remove todos os itens da lista e insere novamente os pedidos com seus dados.
+    """
     lista_pedidos.delete(0, tk.END)
     for pedido in pedidos:
         lista_pedidos.insert(tk.END, f"Produto: {pedido['produto']}, Quantidade: {pedido['quantidade']}, Cliente: {pedido['cliente']}")
 
 def gerenciar_pedidos():
+    """
+    Cria uma nova janela para gerenciamento de pedidos.
+    Configura a interface gráfica com opções para adicionar, remover e alterar pedidos, e uma lista de pedidos.
+    """
     janela = tk.Toplevel()
     janela.title("Gerenciar Pedidos")
     
