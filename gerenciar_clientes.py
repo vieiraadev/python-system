@@ -5,9 +5,19 @@ from tkinter import messagebox
 clientes = []
 
 def obter_clientes():
+    """
+    Retorna uma lista com os nomes dos clientes.
+    :return: Lista de nomes de clientes.
+    """
     return [cliente['nome'] for cliente in clientes]
 
 def validar_numeros(entry_value):
+    """
+    Valida se o valor inserido é numérico ou vazio.
+    Exibe uma mensagem de erro se o valor não for numérico.
+    :param entry_value: Valor do campo de entrada.
+    :return: True se o valor for numérico ou vazio, False caso contrário.
+    """
     if entry_value.isdigit() or entry_value == "":
         return True
     else:
@@ -15,6 +25,10 @@ def validar_numeros(entry_value):
         return False
 
 def adicionar_cliente():
+    """
+    Abre uma janela para adicionar um novo cliente.
+    Salva o cliente na lista de clientes se todos os campos estiverem preenchidos corretamente.
+    """
     def salvar_cliente():
         nome_cliente = entry_nome.get()
         cpf_cnpj_cliente = entry_cpf_cnpj.get()
@@ -52,6 +66,11 @@ def adicionar_cliente():
     button_salvar.grid(row=2, columnspan=2, pady=10)
 
 def remover_cliente():
+    """
+    Remove o cliente selecionado da lista de clientes.
+    Exibe uma mensagem de sucesso se o cliente for removido corretamente.
+    Exibe uma mensagem de erro se nenhum cliente estiver selecionado.
+    """
     selecionado = lista_clientes.curselection()
     if selecionado:
         cliente_removido = lista_clientes.get(selecionado)
@@ -63,11 +82,19 @@ def remover_cliente():
         messagebox.showerror("Erro", "Por favor, selecione um cliente para remover.")
 
 def atualizar_lista_clientes():
+    """
+    Atualiza a lista de clientes exibida na interface gráfica.
+    Remove todos os itens da lista e insere novamente os clientes com seus dados.
+    """
     lista_clientes.delete(0, tk.END)
     for cliente in clientes:
         lista_clientes.insert(tk.END, f"{cliente['id']} - Nome: {cliente['nome']}, CPF/CNPJ: {cliente['cpf_cnpj']}")
 
 def gerenciar_clientes():
+    """
+    Cria uma nova janela para gerenciamento de clientes.
+    Configura a interface gráfica com opções para adicionar e remover clientes, e uma lista de clientes.
+    """
     janela = tk.Toplevel()
     janela.title("Gerenciar Clientes")
     
