@@ -4,8 +4,6 @@ Curso: Engenharia de Software
 
 Instituição: Pontifícia Universidade Católica do Paraná (PUCPR)
 
-Este projeto começou como um trabalho da faculdade. Eu percebi que uma casa de festas de um conhecido precisava de um sistema para controlar o estoque. Então, decidi usar essa ideia para o meu trabalho.Escolhi criar um sistema de controle de estoque para uma casa de festas porque é muito importante para o negócio.
-
 Este projeto envolve a utilização da linguagem de programação Python e é parte integrante da avaliação final do semestre. A seguir, apresento os objetivos principais:
 
 Objetivos
