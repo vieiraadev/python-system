@@ -1,15 +1,37 @@
-Projeto de Fim de Semestre
+# 📦 Sistema de Estoque em Python
 
-Curso: Engenharia de Software
+Este projeto consiste em um **Sistema de Gerenciamento de Estoque** desenvolvido em Python, utilizando **Tkinter** para a interface gráfica. O sistema foi projetado para ser totalmente integrado, garantindo que não existam pontas soltas entre os módulos. Ele permite o cadastro de produtos, atualização de estoque, geração de relatórios, gerenciamento de usuários e fornecedores, além do controle de pedidos.
 
-Instituição: Pontifícia Universidade Católica do Paraná (PUCPR)
+---
 
-Este projeto envolve a utilização da linguagem de programação Python e é parte integrante da avaliação final do semestre. A seguir, apresento os objetivos principais:
+## 📋 Descrição do Projeto
 
-Objetivos
+O sistema oferece uma solução completa para o controle de estoque, permitindo que os administradores gerenciem todas as operações em um ambiente seguro e eficiente.
 
-Aplicação de Conceitos de Programação<br>
-Demonstrar o domínio dos principais conceitos de programação em Python, como estruturas de controle, manipulação de dados, funções, classes, e tratamento de exceções.<br>
-Desenvolvimento de Algoritmos<br>
-Implementar algoritmos eficientes e eficazes para resolver problemas específicos, focando em otimização e desempenho.<br>
-Garantir que o código esteja bem documentado e siga as melhores práticas de programação, incluindo comentários explicativos, uso adequado de convenções de nomenclatura, e estruturação clara do código.<br>
+### Principais Módulos:
+1. **Cadastro de Produtos**: Adicione novos produtos ao estoque.
+2. **Atualização de Estoque**: Gerencie a quantidade de itens disponíveis.
+3. **Geração de Relatórios**: Crie relatórios detalhados sobre movimentações de estoque.
+4. **Gerenciamento de Usuários**: Sistema de login onde o administrador pode aprovar ou negar solicitações de acesso.
+5. **Pedidos e Fornecedores**: Controle pedidos e gerencie fornecedores cadastrados.
+
+---
+
+## 🚀 Funcionalidades
+
+- **CRUD Completo** para todos os módulos.
+- **Sistema de Login Seguro** com aprovação pelo administrador.
+- **Interface Gráfica ** utilizando Tkinter.
+- **Relatórios Gerenciais** para melhor análise e tomada de decisão.
+- **Controle de Acessos** com permissões diferenciadas para usuários e administradores.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- **Python**
+- **Tkinter** (Interface Gráfica)
+- **Datetime** (Gestão de datas e movimentação de estoque)
+
+---
+
